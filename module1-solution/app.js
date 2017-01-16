@@ -10,6 +10,7 @@
 
         $scope.checkItems = function () {
             $scope.items = [];
+            $scope.message = '';
 
             if ($scope.textInput){
                 $scope.items = $scope.textInput.split(',');
