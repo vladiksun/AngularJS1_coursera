@@ -1,0 +1,9 @@
+// Start browser-sync
+browser-sync start --server --directory --files "**/*"
+
+//GIT
+git add .
+git add <file_name>
+git status
+git commit -m 'Message'
+git push
