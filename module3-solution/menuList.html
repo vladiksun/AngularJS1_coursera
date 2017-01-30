@@ -1,7 +1,18 @@
-<ol>
-    <li ng-repeat="item in list.items">
-        {{ item.quantity }} of {{ item.name }}
-        <button ng-click="list.onRemove({index: $index});">Remove Item</button>
-    </li>
-</ol>
-<div class="error" ng-transclude></div>
+<div class="notFound" ng-transclude>Not Found</div>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <th>Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in list.items">
+            <td>{{item.name}}</td>
+            <td>{{item.short_name}}</td>
+            <td>{{item.description}}</td>
+            <td><button class="btn btn-primary" ng-click="list.onRemove({index: $index});">Don't want this one!</button></td>
+        </tr>
+    </tbody>
+
+</table>

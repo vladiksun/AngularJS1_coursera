@@ -6,23 +6,31 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/my_styles.css">
+      <script src="jquery-3.1.0.min.js"></script>
+      <script src="angular.min.js"></script>
+      <script src="app.js"></script>
   </head>
 <body ng-app="NarrowItDownApp" ng-cloak>
    <div class="container" ng-controller="NarrowItDownController as narrowCtrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model="narrowCtrl.searchTerm">
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click="narrowCtrl.performSearch();">Narrow It Down For Me!</button>
     </div>
 
-    <!-- found-items should be implemented as a component -->
-    <found-items
-            found-items="narrowCtrl.items"
-            on-remove="narrowCtrl.removeItem(index)">
-    </found-items>
+
+    <div id="loading" ng-show="narrowCtrl.isLoading">Loading</div>
+
+
+    <div ng-show="!narrowCtrl.isLoading && !narrowCtrl.isEmpty">
+        <found-items
+                     items="narrowCtrl.items"
+                     on-remove="narrowCtrl.removeItem(index)">
+        </found-items>
+    </div>
   </div>
 
 </body>
