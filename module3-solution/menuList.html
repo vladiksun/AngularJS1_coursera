@@ -1,5 +1,12 @@
-<div class="notFound" ng-transclude>Not Found</div>
-<table class="table table-hover table-striped table-bordered">
+
+<br>
+<br>
+<br>
+
+<div class="error" ng-show="list.isListEmpty() && !list.resultHolder.isInitial">Nothing found</div>
+<div class="loader"></div>
+
+<table class="table table-hover table-striped table-bordered" ng-if="!list.isListEmpty()">
     <thead>
         <th>Name</th>
         <th>Short Name</th>
@@ -7,7 +14,7 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="item in list.items">
+        <tr ng-repeat="item in list.resultHolder.items">
             <td>{{item.name}}</td>
             <td>{{item.short_name}}</td>
             <td>{{item.description}}</td>
@@ -16,3 +23,4 @@
     </tbody>
 
 </table>
+
