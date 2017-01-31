@@ -3,8 +3,8 @@
 <br>
 <br>
 
-<div class="error" ng-show="list.isListEmpty() && !list.resultHolder.isInitial">Nothing found</div>
-<div class="loader"></div>
+<div class="error" ng-show="list.isListEmpty() && !list.resultHolder.isInitial && !list.resultHolder.isLoading">Nothing found</div>
+<div class="loader" ng-show="list.resultHolder.isLoading"></div>
 
 <table class="table table-hover table-striped table-bordered" ng-if="!list.isListEmpty()">
     <thead>

@@ -14,7 +14,8 @@ function NarrowItDownController(MenuSearchService) {
     itemsCtrl.resultHolder = {
                                  searchTerm: "",
                                  items: [],
-                                 isInitial: true
+                                 isInitial: true,
+                                 isLoading: false
                              };
 
 
@@ -36,6 +37,7 @@ function MenuSearchService($http) {
 
     service.getMatchedMenuItems = function (resultHolder) {
         var filteredItems = [];
+        resultHolder.isLoading = true;
 
         if (resultHolder.searchTerm !== ""){
             var promise = $http({
@@ -53,11 +55,13 @@ function MenuSearchService($http) {
 
                 resultHolder.items = filteredItems;
                 resultHolder.isInitial = false;
+                resultHolder.isLoading = false;
             });
         }
         else {
             resultHolder.items = filteredItems;
             resultHolder.isInitial = false;
+            resultHolder.isLoading = false;
         }
 
         return resultHolder;
