@@ -1,0 +1,13 @@
+<a ui-sref="homeView">Home</a> &lt; <a ui-sref="categoriesView">Categories</a>
+
+
+<h3>Category Items for:  {{itemsDetails.category}}</h3>
+
+<ul>
+    <li ng-repeat="item in itemsDetails.items">
+        {{ item.name }}
+    </li>
+</ul>
+
+
+
