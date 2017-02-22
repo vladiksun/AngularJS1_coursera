@@ -77,8 +77,12 @@
                         </button>
                     </div>
                 </div>
-                <div style="margin-top: 10px;">
-                    Form valid? {{ signUpForm.$valid }}
+
+                <div ng-show="!signUpCtrl.checkData() && !signUpCtrl.isInitial;" style="margin-top: 10px;">
+                    No such menu number exists
+                </div>
+                <div ng-show="signUpCtrl.checkData() && !signUpCtrl.isInitial;" style="margin-top: 10px;">
+                    Your information has been saved
                 </div>
         </fieldset>
 

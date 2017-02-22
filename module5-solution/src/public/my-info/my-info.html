@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div ng-show="!myInfCtrl.userData">
+        Not Signed Up Yet.  <a ui-sref="public.signUp">Sign up Now!</a>
+    </div>
+
+
+    <div ng-show="myInfCtrl.userData">
+
+        <fieldset class="scheduler-border">
+            Your registration information
+            <br>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Name: </label>
+                <div class="col-md-4">{{myInfCtrl.userData.username}}</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Last Name: </label>
+                <div class="col-md-4">{{myInfCtrl.userData.lastname}}</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Email: </label>
+                <div class="col-md-4">{{myInfCtrl.userData.email}}</div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Phone: </label>
+                <div class="col-md-4">{{myInfCtrl.userData.phone}}</div>
+            </div>
+        </fieldset>
+
+        <br>
+        <div class="menu-item-tile col-md-6">
+            Your favourite dish
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="menu-item-photo">
+                        <div>{{myInfCtrl.userData.item.short_name}}</div>
+                        <img class="img-responsive" width="250" height="150" ng-src="{{myInfCtrl.basePath}}/images/{{myInfCtrl.userData.item.short_name}}.jpg" alt="{{myInfCtrl.userData.item.name}}">
+                    </div>
+                </div>
+                <div class="menu-item-description col-sm-7">
+                    <h3 class="menu-item-title">{{myInfCtrl.userData.item.name}}</h3>
+                    <p class="menu-item-details">{{myInfCtrl.userData.item.description}}</p>
+                </div>
+            </div>
+            <hr class="visible-xs">
+        </div>
+
+    </div>
+
+</div>
+
